@@ -21,14 +21,14 @@ This project is an Automated Information System (AIS) designed to manage the ren
 ### Installation and Setup
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/yourusername/real-estate-rental-management.git
-   cd real-estate-rental-management
+   git clone https://github.com/yourusername/RentSoft.git
+   cd RentSoft
    ```
 
 2. **Set up a virtual environment:**
    ```bash
-   python3 -m venv venv
-   source venv/bin/activate
+   python3 -m venv .venv
+   source .venv/bin/activate
    ```
 
 3. **Install dependencies:**
@@ -67,27 +67,7 @@ This project is an Automated Information System (AIS) designed to manage the ren
   - Add and manage tenants, properties, leases, and payments through the admin interface.
   - Use the navigation menu to access different sections of the system.
 
-### Contributing
-1. **Fork the repository**
-2. **Create a new branch**
-   ```bash
-   git checkout -b feature/YourFeatureName
-   ```
-3. **Commit your changes**
-   ```bash
-   git commit -m 'Add some feature'
-   ```
-4. **Push to the branch**
-   ```bash
-   git push origin feature/YourFeatureName
-   ```
-5. **Open a pull request**
 
-### License
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-### Contact
-For any questions or suggestions, please contact [your-email@example.com].
 
 ---
 
@@ -95,4 +75,3 @@ This project was created as a part of a course at Kazan National Research Techni
 
 ### Acknowledgments
 - Thanks to the course "Design and Architecture of Software Systems" for providing the foundation for this project.
-- Special thanks to all contributors and testers for their support and feedback.
