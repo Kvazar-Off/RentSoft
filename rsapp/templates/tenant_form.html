@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+    .bg-grey {
+        background-color: #ffffff;
+        border-radius: 10px;
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+
+    .row {
+        display: flex;
+        align-items: flex-start;
+    }
+
+    .errorlist {
+        display: none;
+        color: red;
+    }
+</style>
+
+<div class="container">
+    <h2 class="my-4">
+        {% if form.instance.pk %}
+            Редактирование арендатора
+        {% else %}
+            Добавление арендатора
+        {% endif %}
+    </h2>
+    <div class="row">
+        <div class="col-md-6 bg-grey">
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="mb-3">
+                    {{ form.surname.label_tag }}
+                    {{ form.surname }}
+                </div>
+                <div class="mb-3">
+                    {{ form.name.label_tag }}
+                    {{ form.name }}
+                </div>
+                <div class="mb-3">
+                    {{ form.middlename.label_tag }}
+                    {{ form.middlename }}
+                </div>
+                <div class="mb-3">
+                    {{ form.email.label_tag }}
+                    {{ form.email }}
+                </div>
+                <div class="mb-3">
+                    {{ form.phone_number.label_tag }}
+                    {{ form.phone_number }}
+                </div>
+                <div class="mb-3">
+                    {{ form.organization_name.label_tag }}
+                    {{ form.organization_name }}
+                </div>
+                <div class="mb-3">
+                    {{ form.ogrn.label_tag }}
+                    {{ form.ogrn }}
+                </div>
+                <div class="mb-3">
+                    {{ form.inn.label_tag }}
+                    {{ form.inn }}
+                </div>
+                <div class="mb-3">
+                    {{ form.passport_series.label_tag }}
+                    {{ form.passport_series }}
+                </div>
+                <div class="mb-3">
+                    {{ form.passport_number.label_tag }}
+                    {{ form.passport_number }}
+                </div>
+                <div class="mb-3">
+                    {{ form.bank_bik.label_tag }}
+                    {{ form.bank_bik }}
+                </div>
+                <div class="mb-3">
+                    {{ form.bank_account.label_tag }}
+                    {{ form.bank_account }}
+                </div>
+                <div class="mb-3">
+                    {{ form.total_payments.label_tag }}
+                    {{ form.total_payments }}
+                </div>
+                <div class="mb-3">
+                    {{ form.rental_debt.label_tag }}
+                    {{ form.rental_debt }}
+                </div>
+                <div class="mb-3">
+                    {{ form.maintenance_debt.label_tag }}
+                    {{ form.maintenance_debt }}
+                </div>
+                <button type="submit" class="btn btn-success btn-sm">Сохранить</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+    <h3>Вы действительно хотите удалить арендатора "{{ tenant.organization_name }}"?</h3>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-secondary">Удалить</button>
+        <a href="{% url 'tenant_list' %}" class="btn btn-danger">Отмена</a>
+    </form>
+</div>
+{% endblock %}

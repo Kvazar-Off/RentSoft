@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+    .bg-grey {
+        background-color: #ffffff; /* Серый фон колонок */
+        border-radius: 10px; /* Скругленные углы */
+        padding: 20px; /* Отступ внутри колонок */
+        margin-bottom: 20px; /* Отступ между колонками */
+        margin-right: 50px; /* Отступ между колонками */
+        margin-left: 10px; /* Отступ между колонками */
+    }
+    .row {
+        display: flex;
+        align-items: flex-start; /* Выравнивание по верхнему краю */
+    }
+</style>
+
+<div class="container">
+    <div class="row">
+        <h3>Профиль</h3>
+        <div class="col-md-5 bg-grey">
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col-4 text-center">
+                        <img src="{{ employee_info.photo.url }}" width="200" height="200" class="img-thumbnail" alt="Фото профиля">
+                    </div>
+                    <div class="col-8">
+                        <div class="row">
+                            <div class="col-4 font-weight-bold">Логин:</div>
+                            <div class="col-8">{{ user_info.username }}</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-4 font-weight-bold">Фамилия:</div>
+                            <div class="col-8">{{ employee_info.surname }}</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-4 font-weight-bold">Имя:</div>
+                            <div class="col-8">{{ employee_info.name }}</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-4 font-weight-bold">Отчество:</div>
+                            <div class="col-8">{{ employee_info.middlename }}</div>
+                        </div>
+                    </div>
+                </div>
+                <label for="formFile" class="form-label mt-3 mb-2">Загрузить новое фото</label>
+                <input class="form-control mb-3" name="user_photo_upload" type="file" id="formFile" accept=".jpg,.jpeg,.png">
+                <button type="submit" class="btn btn-primary btn-sm">Отправить фото</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

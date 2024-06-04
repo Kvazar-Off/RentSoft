@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h3>Вы уверены, что хотите удалить этот счет?</h3>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-secondary">Удалить</button>
+        <a href="{% url 'bills' %}" class="btn btn-danger">Отмена</a>
+    </form>
+</div>
+{% endblock %}

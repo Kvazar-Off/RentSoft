@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+    .bg-grey {
+        background-color: #ffffff; /* Серый фон колонок */
+        border-radius: 10px; /* Скругленные углы */
+        padding: 20px; /* Отступ внутри колонок */
+        margin-bottom: 20px; /* Отступ между колонками */
+        margin-right: 50px; /* Отступ между колонками */
+        margin-left: 10px; /* Отступ между колонками */
+    }
+    .row {
+        display: flex;
+        align-items: flex-start; /* Выравнивание по верхнему краю */
+    }
+</style>
+
+<div class="container-fluid">
+  <h1>Настройки</h1>
+  <div class="row">
+    <!-- Левая колонка -->
+    <div class="col-md-5 bg-grey">
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="managerCheckbox">
+        <label class="form-check-label" for="managerCheckbox">
+          Менеджер видит только своих клиентов
+        </label>
+      </div>
+      <hr> <!-- Визуальный разделитель -->
+      <h3>Сроки оплаты</h3>
+      <form>
+        <div class="form-group">
+          <label for="criticalDays">Сколько дней до конца периода считаются критичными</label>
+          <input type="number" class="form-control" id="criticalDays">
+        </div>
+        <div class="form-group">
+          <label for="firstDegreeDays">Количество дней просрочки - первая степень</label>
+          <input type="number" class="form-control" id="firstDegreeDays">
+        </div>
+        <div class="form-group">
+          <label for="secondDegreeDays">Количество дней просрочки - вторая степень</label>
+          <input type="number" class="form-control" id="secondDegreeDays">
+        </div>
+        <div class="form-group">
+          <label for="thirdDegreeDays">Количество дней просрочки - третья степень</label>
+          <input type="number" class="form-control" id="thirdDegreeDays">
+        </div>
+      </form>
+      <hr> <!-- Визуальный разделитель -->
+      <h3>Рассылка уведомлений</h3>
+      <form>
+        <div class="form-group">
+          <label for="criticalDays">Первая рассылка после просрочки, дней</label>
+          <input type="number" class="form-control" id="criticalDays">
+        </div>
+        <div class="form-group">
+          <label for="firstDegreeDays">Период уведомлений после просрочки("раз в Х дней")</label>
+          <input type="number" class="form-control" id="firstDegreeDays">
+        </div>
+      </form>
+      <hr> <!-- Визуальный разделитель -->
+      <h3>Рассылка документов</h3>
+      <form>
+        <div class="form-group">
+          <label for="criticalDays">Отправлять счёт на оплату за Х дней до конца </label>
+          <input type="number" class="form-control" id="criticalDays">
+        </div>
+      </form>
+      <button type="button" class="btn btn-primary">Сохранить</button>
+    </div>
+    <!-- Правая колонка -->
+    <div class="col-md-5 bg-grey">
+      <h3>Локальное резервное копирование данных</h3>
+      <button type="button" class="btn btn-primary">Выгрузить базу данных</button>
+      <button type="button" class="btn btn-primary">Выгрузка файлов и документов</button>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'baseauthreg.html' %}
+
+{% block content %}
+<div class="h-100 d-flex align-items-center justify-content-center">
+    <div class="row row-cols-1">
+        <div class="col">
+            <h1>Авторизация</h1>
+        </div>
+        <form method="post" action="">
+            <div class="col">
+                <div class="mb-3 row">
+                    <label for="staticEmail" class="col-sm-2 col-form-label">Логин</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control" name = "authloginame" id="authloginid" placeholder="Введите логин">
+                        </div>
+                </div>
+                <div class="mb-3 row">
+                    <label for="staticEmail" class="col-sm-2 col-form-label">Пароль</label>
+                        <div class="col-sm-10">
+                          <input type="password" class="form-control" name = "authpasswordname" id="authpasswordid" placeholder="Введите пароль">
+                        </div>
+                </div>
+                {% csrf_token %}
+                <div class="mb-3 row">
+                    <button type="submit" class="btn btn-primary mb-3">Войти</button>
+                </div>
+        </form>
+
+    </div>
+</div>
+{% endblock %}

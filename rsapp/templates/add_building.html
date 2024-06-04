@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+    .bg-grey {
+        background-color: #ffffff;
+        border-radius: 10px;
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+
+    .row {
+        display: flex;
+        align-items: flex-start;
+    }
+
+    .errorlist {
+        display: none;
+        color: red;
+    }
+</style>
+
+<div class="container">
+    <h2 class="my-4">Добавить здание</h2>
+    <div class="row">
+        <div class="col-md-6 bg-grey">
+            <form method="post" class="w-100 mx-auto" style="max-width: 600px;">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="name">Название:</label>
+                    <input type="text" id="name" name="name" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label for="address">Адрес:</label>
+                    <input type="text" id="address" name="address" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label for="total_area">Общая площадь:</label>
+                    <input type="number" step="0.01" id="total_area" name="total_area" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label for="total_rooms">Общее количество помещений:</label>
+                    <input type="number" id="total_rooms" name="total_rooms" class="form-control" required>
+                </div>
+                <button type="submit" class="btn btn-success btn-block mt-3">Сохранить</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

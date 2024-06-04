@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h3>Вы действительно хотите удалить договор №{{ contract.contract_id }} от {{ contract.signing_date|date:"d.m.Y" }}?</h3>
+<form method="post">
+  {% csrf_token %}
+  <button type="submit" class="btn btn-secondary">Удалить</button>
+  <a href="{% url 'contracts' %}" class="btn btn-danger">Отмена</a>
+</form>
+{% endblock %}

@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% block content %}
+<style>
+    .bg-grey {
+        background-color: #ffffff;
+        border-radius: 10px;
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+    .row {
+        display: flex;
+        align-items: flex-start;
+    }
+    .errorlist {
+        display: none;
+        color: red;
+    }
+</style>
+<div class="container mt-5">
+    <h2>Изменить помещение</h2>
+    <div class="row">
+        <div class="col-md-6 bg-grey">
+            <form method="post">
+                {% csrf_token %}
+                {% if user.is_superuser %}
+                <div class="mb-3">
+                    {{ form.building.label_tag }} {{ form.building }}
+                </div>
+                {% endif %}
+                <div class="mb-3">
+                    {{ form.floor.label_tag }} {{ form.floor }}
+                </div>
+                <div class="mb-3">
+                    {{ form.number.label_tag }} {{ form.number }}
+                </div>
+                <div class="mb-3">
+                    {{ form.status.label_tag }} {{ form.status }}
+                </div>
+                <div class="mb-3">
+                    {{ form.area.label_tag }} {{ form.area }}
+                </div>
+                {% if user.is_superuser %}
+                <div class="mb-3">
+                    {{ form.curator.label_tag }} {{ form.curator }}
+                </div>
+                {% endif %}
+                <div class="mb-3">
+                    {{ form.description.label_tag }} {{ form.description }}
+                </div>
+                <button type="submit" class="btn btn-success">Сохранить</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

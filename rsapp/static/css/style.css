@@ -1,0 +1,33 @@
+.nav-link {
+  font-size: 20px;
+}
+
+.accordion {
+  --bs-accordion-bg: rgba(0, 0, 0, 0);
+  --bs-accordion-button-active-bg: var(--bs-accordion-bg);
+  --bs-accordion-btn-color: var(--bs-nav-link-color);
+  --bs-accordion-border-color: rgba(0, 0, 0, 0);
+}
+
+.accordion-item {
+  margin: 0;
+}
+
+
+.table th,
+.table td {
+  text-align: center;
+}
+
+body {
+  background-color: #ecedf6; /* Серый фон всей страницы */
+}
+
+
+
+th,
+td {
+  padding: 0.5rem;
+  text-align: left;
+  border: 1px solid #ccc;
+}

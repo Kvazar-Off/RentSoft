@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+    .bg-grey {
+        background-color: #ffffff;
+        border-radius: 10px;
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+    .row {
+        display: flex;
+        align-items: flex-start;
+    }
+    .errorlist {
+        display: none;
+        color: red;
+    }
+</style>
+
+<div class="container mt-5">
+    <h2>
+        {% if form.instance.pk %}
+            Редактирование счета
+        {% else %}
+            Добавление счета
+        {% endif %}
+    </h2>
+    <div class="row">
+        <div class="col-md-6 bg-grey">
+            <form method="post">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="id_rental_space" class="form-label">Арендное помещение</label>
+                    <select id="id_rental_space" name="rental_space" class="form-select">
+                        {% for space in form.fields.rental_space.queryset %}
+                            <option value="{{ space.pk }}">{{ space.building.name }} - {{ space.floor }}{{ space.number }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="id_electricity_bill" class="form-label">Счет за электричество</label>
+                    {{ form.electricity_bill }}
+                </div>
+                <div class="mb-3">
+                    <label for="id_gas_bill" class="form-label">Счет за газ</label>
+                    {{ form.gas_bill }}
+                </div>
+                <div class="mb-3">
+                    <label for="id_water_bill" class="form-label">Счет за воду</label>
+                    {{ form.water_bill }}
+                </div>
+                <div class="mb-3">
+                    <label for="id_heating_bill" class="form-label">Счет за отопление</label>
+                    {{ form.heating_bill }}
+                </div>
+                <div class="mb-3">
+                    <label for="id_repair_bill" class="form-label">Счет за ремонт</label>
+                    {{ form.repair_bill }}
+                </div>
+                <div class="mb-3">
+                    <label for="id_creation_date" class="form-label">Дата создания</label>
+                    {{ form.creation_date }}
+                </div>
+                <button type="submit" class="btn btn-success">Сохранить</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,123 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container-fluid">
+    <h3>Аналитика</h3>
+    <div class="row">
+        <h5>Поступление платежей по месяцам</h5>
+        <!-- Поступление платежей по месяцам -->
+        <div class="col-sm-6">
+            <canvas id="paymentsChart"></canvas>
+        </div>
+
+        <h5>Заполненность по количеству</h5>
+        <!-- Круговая диаграмма состояний объектов недвижимости -->
+        <div class="col-sm-6">
+            <canvas id="statusPieChart"></canvas>
+        </div>
+    </div>
+</div>
+<script>
+    // Пример данных для диаграммы состояний объектов недвижимости
+    const statusData = {
+        labels: ['Этаж-1', 'Этаж-2', 'Этаж-3'],
+        datasets: [
+            {
+                label: 'Свободно',
+                data: [3, 2, 1],
+                backgroundColor: 'red',
+                borderWidth: 1
+            },
+            {
+                label: 'Занято',
+                data: [2, 3, 4],
+                backgroundColor: 'green',
+                borderWidth: 1
+            },
+            {
+                label: 'Ремонт',
+                data: [1, 2, 3],
+                backgroundColor: 'gray',
+                borderWidth: 1
+            }
+        ]
+    };
+
+    // Настройки для линейной диаграммы состояний объектов недвижимости
+    const statusConfig = {
+        type: 'bar',
+        data: statusData,
+        options: {
+            scales: {
+                x: {
+                    beginAtZero: true
+                },
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    };
+
+    // Рендеринг диаграммы состояний объектов недвижимости
+    const statusChart = new Chart(
+        document.getElementById('statusChart'),
+        statusConfig
+    );
+
+    // Пример данных для поступления платежей по месяцам
+    const paymentsData = {
+        labels: ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
+        datasets: [{
+            label: 'Сумма платежей',
+            data: [0, 0, 0, 170000, 147777, 280000, 0, 0, 0, 0, 0, 0],
+            backgroundColor: 'blue',
+            borderWidth: 1
+        }]
+    };
+
+    // Настройки для гистограммы поступления платежей по месяцам
+    const paymentsConfig = {
+        type: 'bar',
+        data: paymentsData,
+        options: {
+            scales: {
+                x: {
+                    beginAtZero: true
+                },
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    };
+
+    // Рендеринг гистограммы поступления платежей по месяцам
+    const paymentsChart = new Chart(
+        document.getElementById('paymentsChart'),
+        paymentsConfig
+    );
+
+    // Пример данных для круговой диаграммы состояний объектов недвижимости
+    const statusPieData = {
+        labels: ['Свободно', 'Занято', 'Ремонт'],
+        datasets: [{
+            data: [1, 5, 1],
+            backgroundColor: ['red', 'green', 'gray'],
+            hoverOffset: 4
+        }]
+    };
+
+    // Настройки для круговой диаграммы состояний объектов недвижимости
+    const statusPieConfig = {
+        type: 'pie',
+        data: statusPieData,
+    };
+
+    // Рендеринг круговой диаграммы состояний объектов недвижимости
+    const statusPieChart = new Chart(
+        document.getElementById('statusPieChart'),
+        statusPieConfig
+    );
+</script>
+{% endblock %}
