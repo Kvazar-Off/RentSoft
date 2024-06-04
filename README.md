@@ -1,4 +1,4 @@
-README
+
 ## Automated Commercial Real Estate Rental Management System
 
 ### Project Overview
